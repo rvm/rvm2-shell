@@ -1,4 +1,11 @@
+require 'hooks'
+
 class Rvm2::Shell::Command::Base
+  include Hooks
+
+  define_hook  :on_start, halts_on_falsey: true
+  define_hooks :on_stdout, :on_stderr, :on_finish
+
   attr_reader :status, :command
 
   def initialize(*args)
@@ -7,11 +14,14 @@ class Rvm2::Shell::Command::Base
 
   def start
     @started = Time.now
+    run_hook(:on_start, @started)
   end
 
   def finish(status)
     @finished = Time.now
     @status   = status
+    run_hook(:on_finish, @finished, @status)
+    @status
   end
 
   def duration
@@ -21,7 +31,10 @@ class Rvm2::Shell::Command::Base
 
   def execute(runner)
     start
-    status = runner.execute(to_s)
+    status = runner.execute(to_s) do |out, err|
+      run_hook(:on_stdout, out) if out
+      run_hook(:on_stderr, err) if err
+    end
   ensure
     finish(status) # nil if not called
   end
@@ -41,4 +54,5 @@ class Rvm2::Shell::Command::Base
   def to_s
     args.map{|a| "\"#{a}\""}.join(" ")
   end
+
 end

@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rvm2'
   spec.add_dependency 'pluginator'
+  spec.add_dependency 'hooks'
 
   #spec.add_development_dependency 'rake'
 
