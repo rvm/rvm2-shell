@@ -6,11 +6,12 @@ class Rvm2::Shell::Runner::Local
     @shell = shell
   end
   def execute(command)
-    shell.execute(command) do |out, err|
+    shell_session.execute(command) do |out, err|
       yield(out, err)
     end
+    shell_session.status
   end
-  def shell
-    @shell ||= Session::Sh.new(:prog => shell)
+  def shell_session
+    @shell_session ||= Session::Sh.new(:prog => shell)
   end
 end
