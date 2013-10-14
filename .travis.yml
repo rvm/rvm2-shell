@@ -1,6 +1,7 @@
 language: ruby
 before_install:
-  - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no localhost "true" || sudo service ssh start || true
+  - "test -f ~/.ssh/id_rsa || ssh-keygen -b 4096 -t rsa -P ''"
+  - ssh -o StrictHostKeyChecking=no localhost "true"
 rvm:
   - 2.0.0
 notifications:
