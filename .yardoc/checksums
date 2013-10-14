@@ -1,0 +1,8 @@
+lib/rvm2/shell.rb 2e347b536a7c2084cab915a121b401a01c2c997c
+lib/rvm2/shell/runner.rb ae970dbf3cdcd802adcf21d8c29780269ff024e6
+lib/rvm2/shell/version.rb 327fce64e884d8747a7dee386e958e427c785a35
+lib/rvm2/shell/command.rb 158b2fba566ed987d721a3748ce8cdc05dd2956c
+lib/rvm2/shell/runner/ssh.rb 25f1b2389db1cee542473273f6ceef147361b0b7
+lib/rvm2/shell/runner/fake.rb 6010432c9ad8c9ee9a798aa537df0b065c7832fc
+lib/rvm2/shell/runner/local.rb c111d60ee2001b1949a23a60d52b856979fbc360
+lib/rvm2/shell/command/base.rb 3146b064c3d7d97174113cc4dba8f4de25347dac
