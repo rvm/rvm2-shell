@@ -22,8 +22,8 @@ class Rvm2::Shell::Runner::TestFake < MiniTest::Unit::TestCase
     fake.execute(test_command) do |out, err|
       called+=1
     end
-    assert_equal called, 0
-    assert_equal status, 0
+    assert_equal 0, called
+    assert_equal 0, status
   end
 
   def test_false
@@ -31,15 +31,15 @@ class Rvm2::Shell::Runner::TestFake < MiniTest::Unit::TestCase
     fake = @test.new
     fake.respond do |command|
       assert_equal command, test_command
-      [0,[]]
+      [1,[]]
     end
     called = 0
     status =
     fake.execute(test_command) do |out, err|
       called+=1
     end
-    assert_equal called, 0
-    assert_equal status, 0
+    assert_equal 0, called
+    assert_equal 1, status
   end
 
   def test_echo_test
@@ -47,16 +47,16 @@ class Rvm2::Shell::Runner::TestFake < MiniTest::Unit::TestCase
     fake = @test.new
     fake.respond do |command|
       assert_equal command, test_command
-      [0,[['test',nil]]]
+      [0,[["test\n",nil]]]
     end
     called = 0
     status =
     fake.execute(test_command) do |out, err|
-      assert_equal out, "test"
+      assert_equal out, "test\n"
       assert_equal err, nil
       called+=1
     end
-    assert_equal called, 1
-    assert_equal status, 0
+    assert_equal 1, called
+    assert_equal 0, status
   end
 end
