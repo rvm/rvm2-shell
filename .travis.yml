@@ -1,6 +1,6 @@
 language: ruby
 before_install:
-  - ssh localhost "true" || sudo service ssh start || true
+  - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no localhost "true" || sudo service ssh start || true
 rvm:
   - 2.0.0
 notifications:
