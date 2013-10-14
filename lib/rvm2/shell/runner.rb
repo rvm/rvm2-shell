@@ -1,5 +1,2 @@
-class Rvm2::Shell::Runner
-  def execute(command)
-
-  end
+module Rvm2::Shell::Runner
 end

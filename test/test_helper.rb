@@ -16,7 +16,7 @@ require 'minitest/autorun'
 
 module Rvm2
   class Shell
-    class Runner
+    module Runner
     end
     module Command
     end
