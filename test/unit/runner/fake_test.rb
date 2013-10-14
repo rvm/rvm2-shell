@@ -5,7 +5,7 @@ end
 
 require 'rvm2/shell/runner/fake'
 
-class TestCommentTestInput < MiniTest::Unit::TestCase
+class Rvm2::Shell::Runner::TestFake < MiniTest::Unit::TestCase
   def setup
     @test = Rvm2::Shell::Runner::Fake
   end
