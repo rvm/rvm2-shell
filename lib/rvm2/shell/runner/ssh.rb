@@ -8,6 +8,7 @@ class Rvm2::Shell::Runner::Ssh
     @user = user
   end
 
+  # TODO: make it run in one session
   def execute(command)
     @last_status = nil
     ssh.open_channel do |channel|
