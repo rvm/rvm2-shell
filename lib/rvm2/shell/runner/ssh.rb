@@ -3,7 +3,7 @@ require 'net/ssh'
 class Rvm2::Shell::Runner::Ssh
   attr_reader :host, :user, :last_status
 
-  def initialize(host, user)
+  def initialize(host, user = nil)
     @host = host
     @user = user
   end
