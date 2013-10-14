@@ -11,7 +11,23 @@ class TestCommentTestInput < MiniTest::Unit::TestCase
   end
 
   def test_true
-    test_command = "echo test"
+    test_command = "true"
+    fake = @test.new
+    fake.respond do |command|
+      assert_equal command, test_command
+      [0,[]]
+    end
+    called = 0
+    status =
+    fake.execute(test_command) do |out, err|
+      called+=1
+    end
+    assert_equal called, 0
+    assert_equal status, 0
+  end
+
+  def test_false
+    test_command = "false"
     fake = @test.new
     fake.respond do |command|
       assert_equal command, test_command
