@@ -1,6 +1,6 @@
 language: ruby
-before_script:
-  - sudo service ssh start
+before_install:
+  - ssh localhost "true" || sudo service ssh start || true
 rvm:
   - 2.0.0
 notifications:
