@@ -15,12 +15,13 @@ Gem::Specification.new do |spec|
   spec.description = 'SM Framework aka RVM 2 - Shell handling'
   spec.license     = 'Apache2'
 
-  spec.add_dependency 'rvm2'
-  spec.add_dependency 'pluginator'
-  spec.add_dependency 'hooks'
-  spec.add_dependency 'session'
+  %w{hooks session net-ssh}.each do |name|
+    spec.add_dependency(name)
+  end
 
-  #spec.add_development_dependency 'rake'
+  %w{rake simplecov coveralls yard redcarpet}.each do |name|
+    spec.add_development_dependency(name)
+  end
 
   spec.files        = Dir.glob('lib/**/*.rb')
   spec.test_files   = Dir.glob('test/**/*.rb')

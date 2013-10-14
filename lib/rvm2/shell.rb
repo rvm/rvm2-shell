@@ -3,5 +3,4 @@ module Rvm2
   end
 end
 
-require_relative "shell/evaluate"
 require_relative "shell/command"
