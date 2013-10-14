@@ -1,8 +1,4 @@
 require 'test_helper'
-
-class Rvm2::Shell::Runner
-end
-
 require 'rvm2/shell/runner/fake'
 
 class Rvm2::Shell::Runner::TestFake < MiniTest::Unit::TestCase

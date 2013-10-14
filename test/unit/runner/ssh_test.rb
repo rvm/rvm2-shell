@@ -1,10 +1,6 @@
 require 'test_helper'
-require 'etc'
-
-class Rvm2::Shell::Runner
-end
-
 require 'rvm2/shell/runner/ssh'
+require 'etc'
 
 enable_ssh_test =
 begin

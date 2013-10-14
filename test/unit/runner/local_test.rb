@@ -1,8 +1,4 @@
 require 'test_helper'
-
-class Rvm2::Shell::Runner
-end
-
 require 'rvm2/shell/runner/local'
 
 class Rvm2::Shell::Runner::TestLocal < MiniTest::Unit::TestCase
