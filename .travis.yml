@@ -1,6 +1,8 @@
 language: ruby
 before_install:
   - "test -f ~/.ssh/id_rsa || ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -P ''"
+  - 'eval `ssh-agent`'
+  - ssh-add ~/.ssh/id_rsa
   - ssh -o StrictHostKeyChecking=no localhost "true"
 rvm:
   - 2.0.0
