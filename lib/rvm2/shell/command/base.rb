@@ -1,7 +1,7 @@
-require 'hooks'
+require 'instance_hooks'
 
 class Rvm2::Shell::Command::Base
-  include Hooks
+  include InstanceHooks
 
   define_hook  :on_start, halts_on_falsey: true
   define_hooks :on_stdout, :on_stderr, :on_finish
@@ -52,7 +52,7 @@ class Rvm2::Shell::Command::Base
   end
 
   def to_s
-    args.map{|a| "\"#{a}\""}.join(" ")
+    command.map{|a| "\"#{a}\""}.join(" ")
   end
 
 end
