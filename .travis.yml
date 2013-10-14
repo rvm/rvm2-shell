@@ -1,6 +1,6 @@
 language: ruby
 before_script:
- - sudo /etc/init.d/sshd start
+  - sudo service ssh start
 rvm:
   - 2.0.0
 notifications:
