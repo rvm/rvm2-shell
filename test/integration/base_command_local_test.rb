@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'rvm2/shell/command/base'
+require 'rvm2/shell/command/executor'
 require 'rvm2/shell/runner/local'
 
 class Rvm2::Shell::BaseCommandLocalTest < MiniTest::Unit::TestCase
@@ -9,7 +9,7 @@ class Rvm2::Shell::BaseCommandLocalTest < MiniTest::Unit::TestCase
 
   def test_execute_true
     output_data = []
-    @cmd = Rvm2::Shell::Command::Base.new(:true)
+    @cmd = Rvm2::Shell::Command::Executor.new("true")
     @cmd.on_stdout{|o| output_data << o}
     status = @cmd.execute(@runner)
     assert_equal output_data*"", ""
@@ -18,7 +18,7 @@ class Rvm2::Shell::BaseCommandLocalTest < MiniTest::Unit::TestCase
 
   def test_execute_false
     output_data = []
-    @cmd = Rvm2::Shell::Command::Base.new("false")
+    @cmd = Rvm2::Shell::Command::Executor.new("false")
     @cmd.on_stdout{|o| output_data << o}
     status = @cmd.execute(@runner)
     assert_equal "", output_data*""
@@ -27,7 +27,7 @@ class Rvm2::Shell::BaseCommandLocalTest < MiniTest::Unit::TestCase
 
   def test_execute_echo_test
     output_data = []
-    @cmd = Rvm2::Shell::Command::Base.new(:echo, "test")
+    @cmd = Rvm2::Shell::Command::Executor.new("echo test")
     @cmd.on_stdout{|o| output_data << o.strip }
     status = @cmd.execute(@runner)
     assert_equal "test", output_data*""

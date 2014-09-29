@@ -1,8 +1,5 @@
 module Rvm2::Shell::Command
-  def build(*args)
-    # TODO: find a plugin to handle special cases
-    Base.new(args)
-  end
+  # TODO: do something
 end
 
-require_relative "command/base"
+require_relative "command/executor"
